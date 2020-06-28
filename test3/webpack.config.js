@@ -1,6 +1,8 @@
 const {resolve} = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 module.exports = {
   entry: {
@@ -16,12 +18,28 @@ module.exports = {
       {
         test: /\.css$/,
         // style-loader创建style标签 css-loader 让webpack识别css文件
-        use: ['style-loader', 'css-loader']
+        use: [
+          // 'style-loader', 
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // 这里可以指定一个 publicPath
+              // 默认使用 webpackOptions.output中的publicPath
+              publicPath: '../'
+            },
+          },
+          'css-loader'
+        ]
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      // 类似 webpackOptions.output里面的配置 可以忽略
+      filename: './css/[name].[hash:8].css',
+      // chunkFilename: '[id].css',
+    }),
     new HtmlWebpackPlugin({
       filename: 'page1.html', // 打包后文件
       template: 'app/html/page1/index.html', // 模版页面文件
