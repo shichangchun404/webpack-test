@@ -47,7 +47,7 @@ module.exports = {
       chunks: ['page1']
     }),
     new HtmlWebpackPlugin({
-      filename: 'page2.html', // 打包后文件
+      filename: './views/page2.html', // 打包后文件
       template: 'app/html/page2/index.html', // 模版页面文件
       inject: true, // 是否插入打包bundle.js文件
       chunks: ['page2']
