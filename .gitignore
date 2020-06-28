@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Node template
+# Logs
+logs
+*.log
+/*/node_modules
+# IDE
+.idea
+
+dist/
+TODO
+.DS_Store
