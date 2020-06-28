@@ -11,6 +11,15 @@ module.exports = {
     path: resolve(__dirname, "./dist"), // 打包后的文件存放的地方
     filename: "./js/[name].[hash:8].js" // 打包后输出文件的文件名 【入口文件名】+[hash值],
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // style-loader创建style标签 css-loader 让webpack识别css文件
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
