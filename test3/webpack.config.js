@@ -1,6 +1,8 @@
 const {resolve} = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+// 清空打包文件夹
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// 将style标签中的css分离出来
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
@@ -17,11 +19,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        // style-loader创建style标签 css-loader 让webpack识别css文件
         use: [
-          // 'style-loader', 
+          // 'style-loader', // style-loader创建style标签 css-loader 让webpack识别css文件
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader, // 将style标签中的css分离出来
             options: {
               // 这里可以指定一个 publicPath
               // 默认使用 webpackOptions.output中的publicPath
