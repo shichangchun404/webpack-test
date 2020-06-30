@@ -38,7 +38,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       // 类似 webpackOptions.output里面的配置 可以忽略
-      filename: './css/[name].[hash:8].css',
+      filename: 'css/[name].[hash:8].css',
       // chunkFilename: '[id].css',
     }),
     new HtmlWebpackPlugin({

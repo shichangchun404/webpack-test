@@ -86,6 +86,7 @@ npm install html-webpack-plugin --save-dev
 }
 ```
 > 3 打包less资源 npm install css-loader style-loader less-loader less --save-dev
+执行顺序从右向左 先将less转换css 再解析css 再将css放入style标签中
 ```bash
   oneOf: [
   {
@@ -112,7 +113,7 @@ npm install html-webpack-plugin --save-dev
           outputPath: 'images/',   // 在output基础上，修改输出图片文件的位置
           publicPath: 'images/',  //修改背景图引入url的路径
           limit: 8 * 1024,  // 8kb大小以下的图片文件都用base64处理
-          name: '[hash:8].[ext]'  // hash值为7位，ext自动补全文件扩展名
+          name: '[hash:8].[ext]'  // hash值为8位，ext自动补全文件扩展名
         }
       }
     ]
