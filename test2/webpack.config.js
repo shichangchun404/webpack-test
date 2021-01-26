@@ -5,8 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   entry:  resolve(__dirname, "./app/main.js"),// 已多次提及的唯一入口文件
   output: {
-    path: resolve(__dirname, "./public"), // 打包后的文件存放的地方
-    filename: "[name].[hash:8].js" // 打包后输出文件的文件名 【入口文件名】+[hash值],
+    path: resolve(__dirname, "./public"), // 打包后的文件存放的地方 所有输出文件的目标路径;打包后文件在硬盘中的存储位置。
+    filename: "[name].[hash:8].js", // 打包后输出文件的文件名 【入口文件名】+[hash值],
+    // publicPath: '', 输出解析文件的目录，指定资源文件引用的目录 ，打包后浏览器访问服务时的 url 路径中通用的一部分。
+
   },
   // devtool: 'source-map',
   plugins: [
