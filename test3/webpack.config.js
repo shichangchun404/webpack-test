@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     page1: './app/html/page1/index.js',
     page2: './app/html/page2/index.js',
+    p3: './app/html/page3/index.js',
   },
   output: {
     path: resolve(__dirname, "./dist"), // 打包后的文件存放的地方
@@ -53,6 +54,20 @@ module.exports = {
       inject: true, // 是否插入打包bundle.js文件
       chunks: ['page2']
     }),
+    new HtmlWebpackPlugin({
+      filename: 'views/page3.html', // 打包后文件
+      template: 'app/html/page3/index.html', // 模版页面文件
+      inject: true, // 是否插入打包bundle.js文件
+      chunks: ['p3']
+    }),
+    // copy custom static assets
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../static'),
+    //     to: path.resolve(__dirname, './dist'),
+    //     ignore: ['.*']
+    //   }
+    // ])
   ],
   devServer: {
     contentBase: './dist',  // 项目根路径

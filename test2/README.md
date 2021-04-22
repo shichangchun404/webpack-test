@@ -16,9 +16,9 @@ npm install html-webpack-plugin --save-dev
 ```bash
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'app.html', // 打包后文件
-      template: './public/index.html', // 模版页面文件
-      inject: true
+      filename: 'index.html', // 打包后文件
+      template: 'app.html', // 模版页面文件
+      inject: true // 是否插入打包bundle.js文件
     }),
   ]
 ```

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack app/main.js -o public/bundle.js --mode development",
-    "build": "webpack app/main.js -o public/bundle.js --mode production"
+    "test": "webpack app/main.js -o public/bundle.js",
+    "dev": "webpack app/main.js -o public/bundle.dev.js --mode development",
+    "build": "webpack app/main.js -o public/bundle.prod.js --mode production"
   },
   "author": "shichangchun",
   "license": "ISC",
