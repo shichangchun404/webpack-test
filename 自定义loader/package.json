@@ -1,0 +1,13 @@
+{
+  "name": "loader",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "webpack": "^5.68.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.9.2"
+  }
+}
