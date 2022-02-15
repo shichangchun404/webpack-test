@@ -1,3 +1,3 @@
-import md from './src/read.md'
+import md from './READ.md'
 console.log('app.js')
-console.log('read.md ', md) // {a:1,b:2}
+console.log('read.md ', md)
