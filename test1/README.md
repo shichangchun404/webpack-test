@@ -7,7 +7,7 @@
   # 低版本
   webpack {entry file} {destination for bundled file}
   # 高版本 4+ mode不指定默认是production
-  webpack {entry file} -o {destination for bundled file} --mode [development|production]
+  webpack {entry file} -o {destination for bundled file} --mode [development|production|none]
   # webpack非全局安装的情况 高版本4
   node_modules/.bin/webpack app/main.js -o public/bundle.js --mode development
 ```
