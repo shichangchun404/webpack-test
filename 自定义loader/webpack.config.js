@@ -1,4 +1,5 @@
 const {resolve} = require('path')
+const copyrightWebackPlugin = require('./plugins/copyright-webpack-plugin.js')
 
 module.exports = {
   mode:'none',
@@ -16,4 +17,7 @@ module.exports = {
     ]
   },
   // devtool:"source-map"
+  plugins:[
+    new copyrightWebackPlugin({name:'shicc'})
+  ]
 }
