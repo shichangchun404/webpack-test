@@ -2,9 +2,9 @@ const {resolve} = require('path')
 
 module.exports = {
   mode: "production",
-  // entry:'./src/index.js' // 默认entry
+  entry:'./src/index.js', // 默认entry
   output:{
-    filename:'[name].js',
+    filename:'app.js',
     path:resolve(__dirname,'dist'),
     library:'Shicc',
     libraryTarget:'commonjs' // umd window global commonjs
