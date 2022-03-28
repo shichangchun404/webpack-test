@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, "./dist"), // 打包后的文件存放的地方
-    filename: "./js/[name].[hash:8].js" // 打包后输出文件的文件名 【入口文件名】+[hash值],
+    filename: "./js/[name].[chunkhash:8].js" // 打包后输出文件的文件名 【入口文件名】+[hash值],
   },
   module: {
     rules: [
@@ -38,8 +38,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      // 类似 webpackOptions.output里面的配置 可以忽略
-      filename: 'css/[name].[hash:8].css',
+      // 类似 webpackOptions.output里面的配置 可以忽略 
+      filename: 'css/[name].[contenthash:8].css',
       // chunkFilename: '[id].css',
     }),
     new HtmlWebpackPlugin({

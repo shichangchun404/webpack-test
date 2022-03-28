@@ -1,4 +1,5 @@
 const {resolve} = require('path')
+const copyrightWebackPlugin = require('./plugins/copyright-webpack-plugin.js')
 
 module.exports = {
   mode: "production",
@@ -10,7 +11,7 @@ module.exports = {
     libraryTarget:'commonjs' // umd window global commonjs
   },
 
-  // loader函数会从下往往上的顺序执行 但是loader中的pitch函数会从上往下执行 
+  // loader函数会从下往往上的顺序执行 但是loader中的pitch函数会从上往下执行 并优先执行
   module: {
     rules:[
       // {
@@ -40,10 +41,12 @@ module.exports = {
       }
     ]
   },
-
   // 配置loader路径
   resolveLoader:{
     modules: ['node_modules', resolve(__dirname,'loaders')]
-  }
+  },
+  plugins:[
+    new copyrightWebackPlugin({name:'shicc'})
+  ]
     
 }

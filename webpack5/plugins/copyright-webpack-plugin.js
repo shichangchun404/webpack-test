@@ -30,7 +30,6 @@ class copyrightWebpackPlugin {
         // console.log("compilation === ", compilation)
       }
     )
-
   }
 }
 

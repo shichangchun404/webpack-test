@@ -11,3 +11,9 @@
   # webpack非全局安装的情况 高版本4
   node_modules/.bin/webpack app/main.js -o public/bundle.js --mode development
 ```
+
+# 测试项1 tree shaking
+前提： 1. 必须使用ES6模块化 2.webpack配置文件中的mode开启production环境
+注意：package.json文件添加sideEffects配置来实现哪些文件需要进行tree shaking。
+"sideEffects":false 所有代码都可以进行tree shaking，css文件可能直接被删除。
+"sideEffects':["*.css"] 即css文件不要进行tree shaking

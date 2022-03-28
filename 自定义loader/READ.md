@@ -1,1 +1,0 @@
-### webpack是基于node的模块化打包工具，它本身也只能处理JS和JSON文件，没有处理CSS、图片等其他格式文件的能力。loader就相当于是一个翻译机，将这些文件翻译成webpack能处理的格式。换句话说，loader赋予了webpack处理其他文件的能力。
