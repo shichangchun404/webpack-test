@@ -1,4 +1,24 @@
-# 使用配置文件打包 默认读取项目根目录下webpack.config.js配置文件
+# 1 无配置文件时 使用命令行参数启动
+> webpack可以在终端中使用，在基本的使用方法如下：
+```bash
+  # {extry file}出填写入口文件的路径，本文中就是上述main.js的路径，
+  # {destination for bundled file}处填写打包文件的存放路径
+  # 填写路径的时候不用添加{}
+  # 低版本
+  webpack {entry file} {destination for bundled file}
+  # 高版本 4+ mode不指定默认是production
+  webpack {entry file} -o {destination for bundled file} --mode [development|production|none]
+  # webpack非全局安装的情况 高版本4
+  node_modules/.bin/webpack app/main.js -o public/bundle.js --mode development
+  例子如下
+  "scripts": {
+    "test": "webpack app/main.js -o public/bundle.js",
+    "dev": "webpack app/main.js -o public/bundle.dev.js --mode development",
+    "build": "webpack app/main.js -o public/bundle.prod.js --mode production"
+  },
+```
+
+# 2 使用配置文件打包 默认读取项目根目录下webpack.config.js配置文件
 > 执行命令 npm run dev 或者 npm run build
 ```bash
   "scripts": {
@@ -7,11 +27,11 @@
     "build": "webpack --mode production"
   },
 ```
-
-# 生成Source Maps（使调试更容易）
+# 3 配置文件基本配置
+## 生成Source Maps（使调试更容易）
 > 配置项 devtool: [source-map|cheap-module-source-map|eval-source-map|cheap-module-eval-source-map]
 
-# 打包html文件 安装插件
+## 打包html文件 安装插件
 npm install html-webpack-plugin --save-dev
 ```bash
   plugins: [
@@ -23,7 +43,7 @@ npm install html-webpack-plugin --save-dev
   ]
 ```
 
-# 使用webpack构建本地服务器
+## 使用webpack构建本地服务器
 > 配置项 devServer
 安装依赖 npm install --save-dev webpack-dev-server
 启动 npm run server 默认8080端口
@@ -38,7 +58,7 @@ npm install html-webpack-plugin --save-dev
   },
 ```
 
-# loader
+## loader
 > 1 js语法检查 npm install eslint-loader eslint --save-dev
 ```bash
   配置loader
@@ -120,7 +140,7 @@ npm install html-webpack-plugin --save-dev
   }
 ```
 
-# 清除打包文件目录
+## 清除打包文件目录
 > 安装插件 npm install clean-webpack-plugin --save-dev
 ```bash
   引入 const { CleanWebpackPlugin } = require('clean-webpack-plugin') 注意有{}
@@ -128,3 +148,11 @@ npm install html-webpack-plugin --save-dev
     new CleanWebpackPlugin()
   ]
 ```
+
+# 4 webpack打包优化
+
+## 4.1 tree shaking
+前提： 1. 必须使用ES6模块化 2.webpack配置文件中的mode开启production环境
+注意：package.json文件添加sideEffects配置来实现哪些文件需要进行tree shaking。
+"sideEffects":false 所有代码都可以进行tree shaking，css文件可能直接被删除。
+"sideEffects':["*.css"] 即css文件不要进行tree shaking
