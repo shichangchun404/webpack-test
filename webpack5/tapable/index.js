@@ -29,10 +29,17 @@ class Factory{
      // 同步钩子
     this.hooks.syncHook.tap('syncHook1',()=>{
       console.log('syncHook1 ',name)
+      setTimeout(function(){
+        console.log('syncHook1 1000 ',name)
+      },1000)
     })
     this.hooks.syncHook.tap('syncHook2',()=>{
       console.log('syncHook2 ',name)
     })
+    // syncHook1  scc-tap
+    // syncHook2  scc-tap
+    // syncHook1 1000  scc-tap
+
     // 同步保险钩子 返回undefined继续执行 否则停止向下执行
     this.hooks.syncBailHook.tap('syncBailHook1',()=>{
       console.log('syncBailHook1 ',name)
@@ -45,6 +52,7 @@ class Factory{
     this.hooks.syncBailHook.tap('syncBailHook3',()=>{
       console.log('syncBailHook3 ',name)
     })
+
     // 同步瀑布流钩子 上次事件处理结构传给下次事件
     this.hooks.syncWaterfallHook.tap('syncWaterfallHook1',(data)=>{
       console.log('syncWaterfallHook1 ', data) // syncWaterfallHook1  scc-call
@@ -57,6 +65,11 @@ class Factory{
       console.log('syncWaterfallHook3 ', data) // syncWaterfallHook3  1 此时data依旧是从第一个事件中return出来的
       console.log('syncWaterfallHook end')
     })
+    // syncWaterfallHook1  scc-call
+    // syncWaterfallHook2  1
+    // syncWaterfallHook3  1
+    // syncWaterfallHook end
+
     // 同步循环钩子 直到return undefined 退出循环
     this.hooks.syncLoopHook.tap('syncLoopHook1',()=>{
       console.log('syncLoopHook 1 ', this.count) 
@@ -363,10 +376,10 @@ class Factory{
     
   }
   call(name){
-    this.hooks.syncHook.call(name)
-    this.hooks.syncBailHook.call(name)
+    // this.hooks.syncHook.call(name)
+    // this.hooks.syncBailHook.call(name)
     this.hooks.syncWaterfallHook.call(name)
-    this.hooks.syncLoopHook.call(name)
+    // this.hooks.syncLoopHook.call(name)
 
     // 异步回调风格
     // this.hooks.asyncParallelHook.callAsync(name, ()=>{

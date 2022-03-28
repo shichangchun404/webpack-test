@@ -1,5 +1,5 @@
 # webpack-test
-
+webpack学习笔记
 ## 什么是webpack
 Webpack是一个模块打包器(bundler)。
 在Webpack看来, 前端的所有资源文件(js/json/css/img/less/...)都会作为模块处理
