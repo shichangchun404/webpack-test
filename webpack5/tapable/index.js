@@ -378,14 +378,14 @@ class Factory{
   call(name){
     // this.hooks.syncHook.call(name)
     // this.hooks.syncBailHook.call(name)
-    this.hooks.syncWaterfallHook.call(name)
+    // this.hooks.syncWaterfallHook.call(name)
     // this.hooks.syncLoopHook.call(name)
 
     // 异步回调风格
-    // this.hooks.asyncParallelHook.callAsync(name, ()=>{
-    //   console.log('asyncParallelHook end',name)
-    //   console.timeEnd("total time"); // 记录总共耗时 total time: 3012.631ms
-    // })
+    this.hooks.asyncParallelHook.callAsync(name, ()=>{
+      console.log('asyncParallelHook end',name)
+      console.timeEnd("total time"); // 记录总共耗时 total time: 3012.631ms
+    })
     // this.hooks.asyncParallelBailHook.callAsync(name, ()=>{
     //   console.log('AsyncParallelBailHook end',name)
     //   console.timeEnd("total time"); // 记录总共耗时
