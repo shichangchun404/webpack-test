@@ -32,4 +32,4 @@ const test = ()=> {
 test()
 
 
-export default SyncBailHook
+module.exports = SyncBailHook

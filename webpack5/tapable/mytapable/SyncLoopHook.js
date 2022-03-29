@@ -35,4 +35,4 @@ const test = ()=>{
 
 test()
 
-export default SyncLoopHook
+module.exports = SyncLoopHook

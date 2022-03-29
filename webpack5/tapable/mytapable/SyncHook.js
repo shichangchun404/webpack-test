@@ -26,4 +26,4 @@ const test = ()=>{
 test()
 
 
-export default SyncHook
+module.exports = SyncHook

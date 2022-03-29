@@ -34,4 +34,4 @@ const test = ()=>{
 
 test()
 
-export default SyncWaterfallHook
+module.exports = SyncWaterfallHook
